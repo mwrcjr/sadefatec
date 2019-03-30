@@ -22,4 +22,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'permission', 'status',
     ];
+
+    public function course()
+    {
+        // Relacionamento um pra um com a tabela/classe Course(Curso)
+        return $this->belongsTo('App\Models\Course');
+    }
+
+    public function internship_type()
+    {
+        // Relacionamento um pra um com a tabela/classe InternshipType(Tipo de Estagio)
+        return $this->belongsTo('App\Models\InternshipType');
+    }
 }

@@ -49,7 +49,7 @@ class UserController extends Controller
         $user = User::findOrFail($user->id);
         $user->name                = $request->name;
         $user->course_id           = $request->course_id;
-        $user->internship_type_id   = $request->internship_type_id;
+        $user->internship_type_id  = $request->internship_type_id;
         $user->semester            = $request->semester;
         $user->year                = $request->year;
         $user->ra                  = $request->ra;

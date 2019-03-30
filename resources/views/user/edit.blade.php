@@ -60,7 +60,7 @@
 			            <div class="row form-group">
 			                <div class="col-sm-5">
 			                    {!! Form::label('internship_type_id', 'Tipo de Estágio') !!}
-			                    <select required id="internship_type_id" class="form-control">                            
+			                    <select required id="internship_type_id" name="internship_type_id" class="form-control">                            
                                   <option value="">Selecione o tipo de estágio:</option>                                   
                                     @foreach ($internship_type as $estagio)                                    
                                       <option value="{{ $estagio->id }}">{{ $estagio->type }}</option>
@@ -110,5 +110,23 @@
 
 	</div>
 </div>
+
+
+
+
+@push('post-scripts')
+<script src="https://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $(ra).inputmask("999.999.999.9.999");
+  $(semester).inputmask("9°");
+  $(phone).inputmask("(99) 99999-9999");
+});
+</script>
+@endpush
+
+
 
 @stop

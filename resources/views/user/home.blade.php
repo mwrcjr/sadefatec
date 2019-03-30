@@ -26,22 +26,36 @@
 
 		              <img class="profile-user-img img-responsive img-circle" src="{{ asset('img/img.jpg') }}" alt="User profile picture">
 
-		              <h3 class="profile-username text-center">{{ $n = Auth()->user()->name}}</h3>
+		              <h3 class="profile-username text-center">{{ $n = Auth()->user()->name }}</h3>
 
-		              <p class="text-muted text-center">{{ $ra = Auth()->user()->email}}</p>
-
+		              <p class="text-muted text-center">{{ $ra = Auth()->user()->email }}</p>
+					@if($s >= "1")
 		              <ul class="list-group list-group-unbordered">
 		                <li class="list-group-item">
-		                  <b>Curso:</b> <i class="pull-right">Nome do curso</i>
+		                  <b>Curso:</b><br>
+		                  <i class="pull-right">{{ $c = App\User::find(Auth()->user()->id)->course->name }}</i>
+		                <br><br></li>
+		                <li class="list-group-item">
+		                  <b>Estagio:</b> <i class="pull-right">{{ $e = App\User::find(Auth()->user()->id)->internship_type->type }}</i>
 		                </li>
 		                <li class="list-group-item">
-		                  <b>Estagio:</b> <i class="pull-right">Tipo de estagio</i>
-		                </li>
-		                <li class="list-group-item">
-		                  <b>Telefone:</b> <i class="pull-right">(15) 99999 9999</i>
+		                  <b>Telefone:</b> <i class="pull-right">{{ $t = Auth()->user()->phone }}</i>
 		                </li>
 		              </ul>
-
+					@else
+					  <ul class="list-group list-group-unbordered">
+		                <li class="list-group-item">
+		                  <b>Curso:</b><br>
+		                  <i class="pull-right"></i>
+		                </li>
+		                <li class="list-group-item">
+		                  <b>Estagio:</b> <i class="pull-right"></i>
+		                </li>
+		                <li class="list-group-item">
+		                  <b>Telefone:</b> <i class="pull-right"></i>
+		                </li>
+		              </ul>
+					@endif
 		            </div>
 	            <!-- /.box-body -->
 	          	</div>
@@ -71,55 +85,55 @@
 					  <p>Abaixo você pode vizualizar as etapas completadas da sua documentação:</p>
 					  @if($s == "0")
 					  	<div class="col-sm-3">
-					  		<a class="btn btn-warning btn-xs btn-block" href="#"><i class="fa fa-hourglass-half"></i>  Dados Pessoais</a>
+					  		<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Dados Pessoais</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-danger btn-xs btn-block" href="#"><i class="fa fa-ban"></i>  Dados de Estágio</a>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Dados de Estágio</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-danger btn-xs btn-block" href="#"><i class="fa fa-ban"></i>  Relatório</a>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Relatório</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-danger btn-xs btn-block" href="#"><i class="fa fa-ban"></i>  Documentação</a>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Documentação</button>
 						</div>					  
 					  @elseif($s == "1")
 					  	<div class="col-sm-3">
-					  		<a class="btn btn-success btn-xs btn-block" href="#"><i class="fa fa-check"></i>  Dados Pessoais</a>
+					  		<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados Pessoais</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-warning btn-xs btn-block" href="#"><i class="fa fa-hourglass-half"></i>  Dados de Estágio</a>
+							<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Dados de Estágio</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-danger btn-xs btn-block" href="#"><i class="fa fa-ban"></i>  Relatório</a>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Relatório</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-danger btn-xs btn-block" href="#"><i class="fa fa-ban"></i>  Documentação</a>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Documentação</button>
 						</div>
 					  @elseif($s == "2")
 					  	<div class="col-sm-3">
-					  		<a class="btn btn-success btn-xs btn-block" href="#"><i class="fa fa-check"></i>  Dados Pessoais</a>
+					  		<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados Pessoais</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-success btn-xs btn-block" href="#"><i class="fa fa-check"></i>  Dados de Estágio</a>
+							<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados de Estágio</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-warning btn-xs btn-block" href="#"><i class="fa fa-hourglass-half"></i>  Relatório</a>
+							<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Relatório</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-danger btn-xs btn-block" href="#"><i class="fa fa-ban"></i>  Documentação</a>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Documentação</button>
 						</div>
 					  @elseif($s == "3")
 					  	<div class="col-sm-3">
-					  		<a class="btn btn-success btn-xs btn-block" href="#"><i class="fa fa-check"></i>  Dados Pessoais</a>
+					  		<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados Pessoais</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-success btn-xs btn-block" href="#"><i class="fa fa-check"></i>  Dados de Estágio</a>
+							<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados de Estágio</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-success btn-xs btn-block" href="#"><i class="fa fa-check"></i>  Relatório</a>
+							<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Relatório</button>
 						</div>
 						<div class="col-sm-3">
-							<a class="btn btn-warning btn-xs btn-block" href="#"><i class="fa fa-hourglass-half"></i>  Documentação</a>
+							<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Documentação</button>
 						</div>
 					  @endif
 					</div>
