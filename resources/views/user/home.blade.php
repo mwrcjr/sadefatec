@@ -70,7 +70,7 @@
 					  <a class="btn btn-warning btn-lg" href="{{ route('user.edit', $id=Auth::user()->id) }}" role="button">Dados Pessoais</a>
 					  @elseif($s == "1")
 					  <p class="lead">Para criar sua documentação de estágio você precisa completar os <b>dados do estágio</b>, clique abaixo para continuar. </p>
-					  <a class="btn btn-warning btn-lg" href="#" role="button">Dados do Estágio</a>
+					  <a class="btn btn-warning btn-lg" href="#" role="button">Dados de Estágio</a>
 					  @elseif($s == "2")
 					  <p class="lead">Para criar sua documentação de estágio você precisa completar a etapa de <b>relatório</b>, clique abaixo para continuar. </p>
 					  <a class="btn btn-warning btn-lg" href="#" role="button">Relatório</a>
@@ -135,22 +135,12 @@
 						<div class="col-sm-3">
 							<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Documentação</button>
 						</div>
-					  @endif
+					  @endif<br><br>
+					  	<small id="HelpBlock" class="form-text text-muted"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda: &nbsp;&nbsp;&nbsp;</b><i class="fa fa-check"></i>
+							  <i>&nbsp;&nbsp; Etapa Finalizada &nbsp;| &nbsp;&nbsp;&nbsp;</i><i class="fa fa-hourglass-half"></i> <i>&nbsp;&nbsp; Etapa em andamento &nbsp;| &nbsp;&nbsp;&nbsp;</i><i class="fa fa-ban"></i> <i>&nbsp;&nbsp; Etapa bloqueada &nbsp;| &nbsp;&nbsp;&nbsp;</i>
+						</small>
 					</div>
 
-					
-
-
-
-
-
-
-
-
-
-
-   
-	            
 	          	</div>
         	</div>
 	    </div>

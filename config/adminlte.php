@@ -108,79 +108,44 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'MENU',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        'ACCOUNT SETTINGS',
-        [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => 'Perfil',
+            'url'  => 'user',
             'icon' => 'user',
         ],
+        [
+            'text' => 'Estágio',
+            'url'  => 'admin/settings',
+            'icon' => 'suitcase',
+        ],
+        [
+            'text' => 'Relatórios',
+            'url'  => 'admin/settings',
+            'icon' => 'edit',
+        ],
+        [
+            'text' => 'Documentação',
+            'url'  => 'admin/settings',
+            'icon' => 'file-text-o',
+        ],
+        'CONFIGURAÇÕES DA CONTA',
         [
             'text' => 'Change Password',
             'url'  => 'admin/settings',
             'icon' => 'lock',
         ],
+        'AJUDA',
         [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
-            'submenu' => [
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Level One',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
+            'text'       => 'Guia de cadastros',
             'icon_color' => 'red',
         ],
         [
-            'text'       => 'Warning',
+            'text'       => 'Guia de relatórios',
             'icon_color' => 'yellow',
         ],
         [
-            'text'       => 'Information',
+            'text'       => 'Guia de documentação',
             'icon_color' => 'aqua',
         ],
     ],

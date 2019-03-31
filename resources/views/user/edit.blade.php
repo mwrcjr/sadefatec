@@ -40,11 +40,18 @@
 			            <div class="row form-group">
 			            	<div class="col-sm-7">
 			                    {!! Form::label('course_id', 'Curso') !!}
-			                    <select required id="course_id" name="course_id" class="form-control">                            
-                                  <option value="">Selecione o curso:</option>                                   
+			                    <select required id="course_id" name="course_id" class="form-control">
+			                   	  @if($s > "0")                            
+                                  <option value="{{ $v = App\User::find(Auth()->user()->id)->course->id }}">{{ $c = App\User::find(Auth()->user()->id)->course->name }}</option>
+                                  	@foreach ($courses as $curso)                                    
+                                      <option value="{{ $curso->id }}">{{ $curso->name }}</option>
+                                    @endforeach
+								  @else
+                                  <option value="">Selecione o curso:</option>
                                     @foreach ($courses as $curso)                                    
                                       <option value="{{ $curso->id }}">{{ $curso->name }}</option>
-                                    @endforeach                                   
+                                    @endforeach
+                                  @endif                                                                  
                                 </select>
 			                </div>
 			                <div class="col-sm-2">
@@ -60,17 +67,24 @@
 			            <div class="row form-group">
 			                <div class="col-sm-5">
 			                    {!! Form::label('internship_type_id', 'Tipo de Estágio') !!}
-			                    <select required id="internship_type_id" name="internship_type_id" class="form-control">                            
-                                  <option value="">Selecione o tipo de estágio:</option>                                   
+			                   	  @if($s > "0")                            
+								  {!! Form::input('text', 'internship_type', $e = App\User::find(Auth()->user()->id)->internship_type->type, ['id' => 'internship', 'Readonly' => 'true', 'class' => 'form-control']) !!}
+								  {!! Form::input('hidden', 'internship_type_id', null, ['id' => 'internship_type_id', 'Required' => 'true', 'class' => 'form-control', 'Readonly' => 'true']) !!}
+								  @else
+								<select required id="internship_type_id" name="internship_type_id" class="form-control">
+                                  <option value="">Selecione o tipo de estágio:</option>
                                     @foreach ($internship_type as $estagio)                                    
                                       <option value="{{ $estagio->id }}">{{ $estagio->type }}</option>
-                                    @endforeach                                   
+                                    @endforeach
+                                  @endif                                                                  
                                 </select>
 			                </div>
+			                @if($s == "0")
 			                <div class="col-sm-7 form-group has-warning">
 			                    <br><br>
 			                    <label class="control-label" for="inputWarning"><i class="fa fa-hand-o-left"></i> <i>Escolha com atenção! Você </i><b>não</b> <i>poderá editar o tipo de estágio futuramente! </i><i class="fa fa-exclamation-triangle"></i></label>
-			                </div>			                
+			                </div>
+			                @endif			                
 			            </div>
 
 			            <div class="row form-group">
