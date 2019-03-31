@@ -20,6 +20,15 @@
 	    </div>
 
 	    <div class="box-body">
+	    @if (count($errors) > 0)
+		    <div class="alert alert-danger">
+		        <ul>
+		            @foreach ($errors->all() as $error)
+		                <li>{{ $error }}</li>
+		            @endforeach
+		        </ul>
+		    </div>
+		@endif
 
         	<div class="col-md-12">
 	    		<div class="box box-primary">
@@ -134,8 +143,9 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-  $(ra).inputmask("999.999.999.9.999");
+  $(ra).inputmask("132.099.999.9.999");
   $(semester).inputmask("9°");
+  $(year).inputmask("2099");
   $(phone).inputmask("(99) 99999-9999");
 });
 </script>

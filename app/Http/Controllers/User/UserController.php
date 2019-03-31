@@ -22,6 +22,8 @@ class UserController extends Controller
             return redirect()->route('user.show', [$id]);
         } else  
 
+        $users = User::orderBy('name', 'asc')->paginate();
+        return view('user.index', compact('users'));
         echo "Perfil de ADM Logado!";
     }
     /**Retorna o form de criação de User */
@@ -54,6 +56,16 @@ class UserController extends Controller
     /**Atualiza um registro de User q foi atualizado */
     public function update(Request $request, User $user)
     {
+        $this->validate($request, [
+        'name'               => 'required|string',
+        'course_id'          => 'required|max:1',
+        'internship_type_id' => 'required|max:1',
+        'semester'           => 'required',
+        'year'               => 'required|numeric|min:4',
+        'ra'                 => 'required|unique:users,ra,' . $user->id . '|min:17',
+        'phone'              => 'required|min:14',
+        ]);
+
         $user = User::findOrFail($user->id);
         $user->name                = $request->name;
         $user->course_id           = $request->course_id;
@@ -67,6 +79,7 @@ class UserController extends Controller
         $user->save();
         
         return redirect('home');
+        return redirect()->route('home', $validate);
     }
     /**Remove um registro de User especifico */
     public function destroy(User $user)

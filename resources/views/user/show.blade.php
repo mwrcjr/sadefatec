@@ -9,8 +9,6 @@
 
 @section('content')
 
-@section('content')
-
 <div class="container-fluid">
 	
 	<div class="box box-danger">
