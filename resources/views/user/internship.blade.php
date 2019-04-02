@@ -15,7 +15,7 @@
 	<div class="box box-danger">
 
 	    <div class="box-header">
-	    	<h4>Seja bem vindo(a)!</h4>
+	    	<h4>Andamento do estágio: </h4>
 	    </div>
 
 	    <div class="box-body">
@@ -64,30 +64,21 @@
 	    		<div class="box box-primary">
 	    			<div class="jumbotron">
 					  <h4 class="display-4"><b>PRÓXIMO PASSO:</b></h4>
-					  @if($s == "0")
-					  <p class="lead">Para criar sua documentação de estágio você precisa completar seus <b>dados pessoais</b>, clique abaixo para continuar. </p>
-					  <a class="btn btn-warning btn-lg" href="{{ route('user.edit', $id=Auth::user()->id) }}" role="button">Dados Pessoais</a>
-					  @elseif($s == "1")
-					  <p class="lead">Para criar sua documentação de estágio você precisa completar os <b>dados do estágio</b>, clique abaixo para continuar. </p>
-					  <a class="btn btn-warning btn-lg" href="{{ route('data.index') }}" role="button">Dados de Estágio</a>
-					  @elseif($s == "2")
-					  <p class="lead">Para criar sua documentação de estágio você precisa completar a etapa de <b>relatório</b>, clique abaixo para continuar. </p>
-					  <a class="btn btn-warning btn-lg" href="#" role="button">Relatório</a>
-					  @elseif($s == "3")
-					  <p class="lead">Para finalizar seu processo de estágio você precisa conferir e exportar a <b>documentação</b>, clique abaixo para continuar. </p>
-					  <a class="btn btn-warning btn-lg" href="#" role="button">Documentação</a>
+					  @if($s)
+					  <p class="lead">Antes de iniciar o estágio você deve ter o numero da <b>Apólice de seguro</b>, e preencher a <b>Ficha de inscrição</b> clique abaixo para continuar. </p>
+					  <a class="btn btn-warning btn-lg" href="{{ route('user.edit', $id=Auth::user()->id) }}" role="button">Seguro e Inscrição</a>
 					  @endif
 
 
 
 					  <hr class="my-2">
 					  <p>Abaixo você pode vizualizar as etapas completadas da sua documentação:</p>
-					  @if($s == "0")
+					  @if($s)
 					  	<div class="col-sm-3">
-					  		<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Dados Pessoais</button>
+					  		<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Seguro e inscrição</button>
 						</div>
 						<div class="col-sm-3">
-							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Dados de Estágio</button>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Entrega da inscrição</button>
 						</div>
 						<div class="col-sm-3">
 							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Relatório</button>
@@ -95,45 +86,9 @@
 						<div class="col-sm-3">
 							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Documentação</button>
 						</div>					  
-					  @elseif($s == "1")
-					  	<div class="col-sm-3">
-					  		<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados Pessoais</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Dados de Estágio</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Relatório</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Documentação</button>
-						</div>
-					  @elseif($s == "2")
-					  	<div class="col-sm-3">
-					  		<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados Pessoais</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados de Estágio</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Relatório</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Documentação</button>
-						</div>
-					  @elseif($s == "3")
-					  	<div class="col-sm-3">
-					  		<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados Pessoais</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados de Estágio</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Relatório</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Documentação</button>
-						</div>
+						
+						
+						
 					  @endif<br><br>
 					  	<small id="HelpBlock" class="form-text text-muted"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda: &nbsp;&nbsp;&nbsp;</b><i class="fa fa-check"></i>
 							  <i>&nbsp;&nbsp; Etapa Finalizada &nbsp;| &nbsp;&nbsp;&nbsp;</i><i class="fa fa-hourglass-half"></i> <i>&nbsp;&nbsp; Etapa em andamento &nbsp;| &nbsp;&nbsp;&nbsp;</i><i class="fa fa-ban"></i> <i>&nbsp;&nbsp; Etapa bloqueada &nbsp;| &nbsp;&nbsp;&nbsp;</i>

@@ -34,4 +34,10 @@ class User extends Authenticatable
         // Relacionamento um pra um com a tabela/classe InternshipType(Tipo de Estagio)
         return $this->belongsTo('App\Models\InternshipType');
     }
+
+    // Relacionamento um pra um com a tabela/classe Usuário(User)
+    public function data()
+    {
+        return $this->hasOne('App\Models\Data');
+    }
 }

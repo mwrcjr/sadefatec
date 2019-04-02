@@ -116,7 +116,7 @@ return [
         ],
         [
             'text' => 'Estágio',
-            'url'  => 'admin/settings',
+            'url'  => 'data',
             'icon' => 'suitcase',
         ],
         [

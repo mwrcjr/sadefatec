@@ -2,7 +2,16 @@
 
 $this->group(['middleware' => ['auth'], 'namespace' => 'User'], function(){
 	
-	$this->resource('user', 'UserController');
+	$this->resource('user', 'UserController'); //Rostas resources (basicas) para User
+
+	Route::get('/internship', function () {
+    return view('user.internship');});
+
+});
+
+$this->group(['middleware' => ['auth'], 'namespace' => 'Data'], function(){
+	
+	$this->resource('data', 'DataController'); //Rostas resources (basicas) para Data
 
 });
 
@@ -10,6 +19,8 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'User'], function(){
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 
 Auth::routes();
 
