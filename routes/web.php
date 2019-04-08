@@ -13,6 +13,8 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Data'], function(){
 	
 	$this->resource('data', 'DataController'); //Rostas resources (basicas) para Data
 
+	Route::get('data-print', 'DataController@print')->name('data.print');
+
 });
 
 

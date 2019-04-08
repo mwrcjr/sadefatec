@@ -62,27 +62,37 @@
 	    		<div class="box box-primary">
 	    			<div class="jumbotron">
 					  <h4 class="display-4"><b>PRÓXIMO PASSO:</b></h4>
-					  @if($s)
+					  @if($s == 1)
 					  <p class="lead">Antes de iniciar o estágio você deve ter o numero da <b>Apólice de seguro</b>, e preencher a <b>Ficha de inscrição</b> clique abaixo para continuar. </p>
 					  <a class="btn btn-warning btn-lg" href="{{ route('data.create') }}" role="button">Seguro e Inscrição</a>
+					  @elseif($s == 2)
+					  <p class="lead">Antes de iniciar o estágio você deve imprimir os <b>Termos de Convênio e Compromisso</b>, e entregar ao Prof. Responsável na sala de estágio, clique abaixo para continuar. </p>
+					  <a class="btn btn-warning btn-lg" href="{{ route('data.print') }}" role="button">Imprimir Termos</a>
 					  @endif
 
 
 
 					  <hr class="my-2">
 					  <p>Abaixo você pode vizualizar as etapas completadas da sua documentação:</p>
-					  @if($s)
+					  @if($s == 1)
 					  	<div class="col-sm-3">
 					  		<button type="button" class="btn btn-warning btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Seguro e inscrição</button>
 						</div>
 						<div class="col-sm-3">
-							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Entrega da inscrição</button>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Entrega dos termos</button>
 						</div>
 						<div class="col-sm-3">
-							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Relatório</button>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Retirada dos termos</button>
+						</div>
+						@elseif($s == 2)
+					  	<div class="col-sm-3">
+					  		<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Seguro e inscrição</button>
 						</div>
 						<div class="col-sm-3">
-							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Documentação</button>
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-hourglass-half"></i>  Entrega dos termos</button>
+						</div>
+						<div class="col-sm-3">
+							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Retirada dos termos</button>
 						</div>					  
 						
 						

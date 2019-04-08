@@ -67,10 +67,10 @@
 					  @if($s == "0")
 					  <p class="lead">Para criar sua documentação de estágio você precisa completar seus <b>dados pessoais</b>, clique abaixo para continuar. </p>
 					  <a class="btn btn-warning btn-lg" href="{{ route('user.edit', $id=Auth::user()->id) }}" role="button">Dados Pessoais</a>
-					  @elseif($s == "1")
+					  @elseif($s == "1" || $s == "2")
 					  <p class="lead">Para criar sua documentação de estágio você precisa completar os <b>dados do estágio</b>, clique abaixo para continuar. </p>
 					  <a class="btn btn-warning btn-lg" href="{{ route('data.index') }}" role="button">Dados de Estágio</a>
-					  @elseif($s == "2")
+					  @elseif($s == "3")
 					  <p class="lead">Para criar sua documentação de estágio você precisa completar a etapa de <b>relatório</b>, clique abaixo para continuar. </p>
 					  <a class="btn btn-warning btn-lg" href="#" role="button">Relatório</a>
 					  @elseif($s == "3")
@@ -95,7 +95,7 @@
 						<div class="col-sm-3">
 							<button type="button" class="btn btn-danger btn-xs btn-block"><i class="fa fa-ban"></i>  Documentação</button>
 						</div>					  
-					  @elseif($s == "1")
+					  @elseif($s == "1" || $s == "2")
 					  	<div class="col-sm-3">
 					  		<button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-check"></i>  Dados Pessoais</button>
 						</div>

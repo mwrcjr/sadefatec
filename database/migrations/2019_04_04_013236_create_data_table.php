@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDatasTable extends Migration
+class CreateDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateDatasTable extends Migration
      */
     public function up()
     {
-        Schema::create('datas', function (Blueprint $table) {
+        Schema::create('data', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('policy', 45); //seguro e documentaçao
-            $table->string('insurer', 45);
+            $table->string('policy', 45)->nullable();
+            $table->string('insurer', 45)->nullable();
             $table->string('rg', 12);
             $table->string('cpf', 14)->unique();
 
-            $table->string('street', 90); //ficha de inscrição
+            $table->string('street', 90);
             $table->string('number', 9);
             $table->string('district', 45);
             $table->string('city', 45);
@@ -29,7 +29,7 @@ class CreateDatasTable extends Migration
             $table->string('phonerec', 15);
             $table->string('phonehome', 15)->nullable();
 
-            $table->string('company'); //identificação da empresa
+            $table->string('company');
             $table->string('cnpj', 18);
             $table->string('cstreet', 90);
             $table->string('cnumber', 9);
@@ -43,7 +43,7 @@ class CreateDatasTable extends Migration
             $table->string('responsible', 45);
             $table->date('agreement');
 
-            $table->string('supervisor', 90); //dados do estagio
+            $table->string('supervisor', 90);
             $table->string('supervisorrole', 45);
             $table->string('semail', 100);
             $table->string('sphone', 15);
@@ -56,16 +56,16 @@ class CreateDatasTable extends Migration
             $table->date('enddate');
             $table->time('initialtime');
             $table->time('endtime');
-            $table->string('acting ', 45);
-            $table->string('payment', 100); // colocar decimal
-            $table->string('activities', 100); //colocar text area
+            $table->string('acting', 45);
+            $table->decimal('payment', 8, 2);
+            $table->longText('activities');
 
-            $table->string('step', 1)->default('0');
+            $table->string('status', 9)->default('sent');
 
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->timestamps();  
+            $table->timestamps();
         });
     }
 
@@ -76,6 +76,6 @@ class CreateDatasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('datas');
+        Schema::dropIfExists('data');
     }
 }
