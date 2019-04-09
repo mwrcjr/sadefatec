@@ -57,6 +57,29 @@ class DataController extends Controller
 
     public function print()
     {
-        return view('data.print');
+        return view('data.print'); 
+    }
+
+    public function upstatus($i)
+    {
+        //dd($i);
+        if ($i == "c") {
+            data::where('user_id', Auth()->user()->id)->update(['status' => 'check']);
+            return redirect()->route('data.print');
+        }elseif ($i == "i") {
+            data::where('user_id', Auth()->user()->id)->update(['status' => 'create']);
+            return redirect()->route('data.print');
+        }elseif ($i == "s") {
+            data::where('user_id', Auth()->user()->id)->update(['status' => 'saved']);
+            //return redirect()->route('data.print');
+        }elseif ($i == "p") {
+            data::where('user_id', Auth()->user()->id)->update(['status' => 'print']);
+            //return redirect()->route('data.print');
+        }elseif ($i == "o") {
+            data::where('user_id', Auth()->user()->id)->update(['status' => 'ok']);
+            //return redirect()->route('data.print');
+        }else{
+            return redirect()->route('data.print');
+        }
     }
 }

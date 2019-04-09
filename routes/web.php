@@ -11,9 +11,12 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'User'], function(){
 
 $this->group(['middleware' => ['auth'], 'namespace' => 'Data'], function(){
 	
-	$this->resource('data', 'DataController'); //Rostas resources (basicas) para Data
+	$this->resource('data', 'DataController'); //Rotas resources (basicas) para Data
+	Route::get('data-print', 'DataController@print')->name('data.print'); //Rota para preparaçao de impressao para Data
+	Route::get('data-upstatus/{i}', 'DataController@upstatus')->name('data.upstatus'); //Rota de update de status para Data
 
-	Route::get('data-print', 'DataController@print')->name('data.print');
+	Route::get('pdf-convenio', 'PdfController@convenio')->name('pdf.convenio'); //Rota para gerar pdf t. de convenio atraves de Data
+	Route::get('pdf-compromisso', 'PdfController@compromisso')->name('pdf.compromisso'); //gerar pdf t. de compromisso atraves de Data
 
 });
 
